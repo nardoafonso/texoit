@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default" style="margin-bottom: 0px !important;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img [src]="'https://angular.io/assets/images/logos/angular/angular.png'" alt="Angular" class="img-responsive" style=" margin:0px; height: 30px;">
+            </a>
+        </div>
+        <div class="collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active">
+                    <a routerLink="/form">Formulário</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a routerLink="/list">Lista</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="hidden-xs col-sm-3 col-md-3 col-lg-3" style="height:100vh; padding:0px !important;">
+            <ul class="list-group">
+                <a routerLink="/list" routerLinkActive="active" class="list-group-item">Lista</a>
+                <a routerLink="/form" routerLinkActive="active" class="list-group-item">Formulário</a>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" style="height:100vh; padding:0px; background-color:ghostwhite;">
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

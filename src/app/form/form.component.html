@@ -1,0 +1,71 @@
+<!-- <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-lg-10"> -->
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div id="user-data">
+        <div class="form-group" [ngClass]="{'has-error': (name.touched && name.invalid)}">
+            <label for="name">Nome do item</label>
+            <input type="text" id="name" class="form-control" [(ngModel)]="item.name" #name="ngModel" name="name" maxlength="50" required>
+            <div *ngIf="name.touched && name.invalid" class="invalid-feedback">
+                <span class="help-block" *ngIf="name.errors.required">Nome do item é obrigatório</span>
+                <span class="help-block" *ngIf="name.errors.maxlength">Nome do item deve possuir até 50 caracteres</span>
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': (unit.touched && unit.invalid)}">
+            <label for="unit">Enumeração</label>
+            <select id="unit" class="form-control" [(ngModel)]="item.unit" #unit="ngModel" name="unit" required>
+                <option value="lt">Litro</option>
+                <option value="kg">Quiligrama</option>
+                <option value="un">Unidade</option>
+            </select>
+            <div *ngIf="unit.touched && unit.invalid" class="invalid-feedback">
+                <span class="help-block" *ngIf="name.errors.required">Enumeração é obrigatório</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantidade</label>
+            <div class="input-group">
+                <input *ngIf="unit.value!='un'" type="text" id="quantity" class="form-control" [(ngModel)]="item.quantity" [dropSpecialCharacters]="false"mask="0*.000"
+                    name="quantity">
+                <input *ngIf="unit.value=='un'" type="text" id="quantity" class="form-control" [(ngModel)]="item.quantity" mask="0*" name="quantity">
+                <span class="input-group-addon">{{unit.value}}</span>
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': (price.touched && price.invalid)}">
+            <label for="price">Preço</label>
+            <input type="text" id="price" class="form-control" currencyMask [options]="{ align:'left', prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                placeholder="R$ 0,00" [(ngModel)]="item.price" #price="ngModel" name="price" required>
+            <div *ngIf="price.touched && price.invalid" class="invalid-feedback">
+                <span class="help-block" *ngIf="price.errors.required">Preço é obrigatório</span>
+            </div>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" id="perish" class="form-check-input" [(ngModel)]="item.perish" #perish="ngModel" name="perish">
+            <label class="form-check-label" for="perish">Perecível</label>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': (fabricationDate.touched && fabricationDate.invalid)}">
+            <label for="fabricationDate">Data de Fabricação</label>
+            <input type="date" id="fabricationDate" class="form-control" [(ngModel)]="item.fabricationDate" #fabricationDate="ngModel"
+                name="fabricationDate" required [customMax]="dueDate.value">
+            <div *ngIf="fabricationDate.touched && fabricationDate.invalid" class="invalid-feedback">
+                <span class="help-block" *ngIf="fabricationDate.errors.required">Data de fabricação é obrigatório</span>
+                <span class="help-block" *ngIf="fabricationDate.errors.customMax">Data de fabricação precisa ser menor que a data de validade</span>
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': (dueDate.touched && dueDate.invalid)}">
+            <label for="date">Data de Validade </label>
+            <input type="date" id="dueDate" class="form-control" [(ngModel)]="item.dueDate" #dueDate="ngModel" name="dueDate" [required]="item.perish===true"
+                [customMin]="fabricationDate.value">
+            <div *ngIf="dueDate.touched && dueDate.invalid" class="invalid-feedback">
+                <span class="help-block" *ngIf="dueDate.errors.required">Data de validade é obrigatório</span>
+                <span class="help-block" *ngIf="dueDate.errors.customMin">Data de validade precisa ser maior que a data de fabricação</span>
+            </div>
+        </div>
+    </div>
+    <div class="btn-group">
+        <button *ngIf="!keyToEdit" class="btn btn-success" type="submit" [disabled]="!f.valid">Enviar</button>
+        <button *ngIf="keyToEdit" class="btn btn-success" type="submit" [disabled]="!f.valid">Editar</button>
+        <button class="btn btn-default" type="button" (click)="onReset()">Limpar Formulário </button>
+    </div>
+</form>
+<!-- </div>
+</div> -->

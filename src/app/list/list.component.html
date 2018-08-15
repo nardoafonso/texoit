@@ -1,0 +1,48 @@
+<!-- <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-lg-10"> -->
+<div class="table-responsive">
+    <table class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Ações</th>
+                <th>Nome</th>
+                <th>Unidade</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Perecível</th>
+                <th>Data de Validade</th>
+                <th>Data de Fabricação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of items">
+                <td>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a style="cursor: pointer;" (click)="editItem(i.key)">Editar Item</a>
+                            </li>
+                            <li>
+                                <a style="cursor: pointer;" (click)="deleteItem(i.key)">Excluir Item</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td>{{i.name}}</td>
+                <td>{{i.unit}}</td>
+                <td>{{i.quantity}}</td>
+                <td>R${{i.price | number:"1.2"}}</td>
+                <td>
+                    <span [ngClass]="{'glyphicon glyphicon-ok' : i.perish}"></span>
+                </td>
+                <td>{{i.dueDate | date:"dd/MM/yyyy"}}</td>
+                <td>{{i.fabricationDate | date:"dd/MM/yyyy" }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- </div>
+</div> -->
