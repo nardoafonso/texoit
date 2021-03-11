@@ -24,9 +24,9 @@
         <div class="form-group">
             <label for="quantity">Quantidade</label>
             <div class="input-group">
-                <input *ngIf="unit.value!='un'" type="text" id="quantity" class="form-control" [(ngModel)]="item.quantity" [dropSpecialCharacters]="false"mask="0*.000"
+                <input *ngIf="unit.value!='un'" type="text" id="quantity" class="form-control" [(ngModel)]="item.quantity"
                     name="quantity">
-                <input *ngIf="unit.value=='un'" type="text" id="quantity" class="form-control" [(ngModel)]="item.quantity" mask="0*" name="quantity">
+                <input *ngIf="unit.value=='un'" type="text" id="quantity" class="form-control" [(ngModel)]="item.quantity" name="quantity">
                 <span class="input-group-addon">{{unit.value}}</span>
             </div>
         </div>
