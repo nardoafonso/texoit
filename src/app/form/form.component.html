@@ -32,7 +32,7 @@
         </div>
         <div class="form-group" [ngClass]="{'has-error': (price.touched && price.invalid)}">
             <label for="price">Preço</label>
-            <input type="text" id="price" class="form-control" currencyMask [options]="{ align:'left', prefix: 'R$ ', thousands: '.', decimal: ',' }"
+            <input type="text" id="price" class="form-control"
                 placeholder="R$ 0,00" [(ngModel)]="item.price" #price="ngModel" name="price" required>
             <div *ngIf="price.touched && price.invalid" class="invalid-feedback">
                 <span class="help-block" *ngIf="price.errors.required">Preço é obrigatório</span>

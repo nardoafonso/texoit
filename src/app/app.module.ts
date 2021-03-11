@@ -1,9 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgxMaskModule } from 'ngx-mask';
-import { CurrencyMaskModule } from "ngx-currency-mask";
-
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { ListComponent } from './list/list.component';
@@ -28,10 +25,9 @@ import { CustomMinDirective } from './form/custo-min-validator.directive';
         BrowserModule,
         FormsModule,
         AppRoutingModule,
-        NgxMaskModule.forRoot(),
-        CurrencyMaskModule
     ],
     providers: [StorageService],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
