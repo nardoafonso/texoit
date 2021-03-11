@@ -10,7 +10,7 @@ import { Item } from '../models/item.model';
     styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-    @ViewChild('f') signUpForm: NgForm;
+    @ViewChild('f', { static: true }) signUpForm: NgForm;
 
     keyToEdit: string;
 
